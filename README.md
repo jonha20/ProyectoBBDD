@@ -17,7 +17,7 @@ Este proyecto representa un sistema de gestión académica que organiza informac
 
 ---
 
-<h3>## 🧩 Modelo Entidad-Relación </h3>
+<h2>🧩 Modelo Entidad-Relación </h2>
 <img src="./img/modeloER.png" alt="Modelo ER" width="800"/>
 
 ### Principales entidades:
@@ -35,7 +35,7 @@ Este proyecto representa un sistema de gestión académica que organiza informac
 
 ---
 
-<h2>## 🧮 Modelo Relacional </h2>
+<h2> 🧮 Modelo Relacional </h2>
 <img src="./img/modeloRE.png" alt="Modelo Relacional" width="800"/>
 
 ### Relaciones destacadas:
