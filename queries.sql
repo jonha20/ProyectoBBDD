@@ -34,7 +34,10 @@ GROUP BY promocion.npromocion, campus.nombre, promocion.fecha_inicio;
 
 --Cuantos alumnos hay de cada modalidad
 
-select  count(t1.Nombre) ,t3.nombre from alumno t1
-inner join promocion t2 on t1.id_promocion = t2.id_promocion
-inner join rama t3 on t2.id_rama = t3.id_rama
+select  count(t1.Nombre) ,t3.nombre 
+from alumno t1
+inner join promocion t2 
+on t1.id_promocion = t2.id_promocion
+inner join rama t3 
+on t2.id_rama = t3.id_rama
 group by 2
