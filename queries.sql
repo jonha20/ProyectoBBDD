@@ -18,3 +18,11 @@ ON aprobado.id_proyecto = proyecto.id_proyecto
 INNER JOIN campus
 ON prmocion.id_promocion = campus.id_promocion
 INNER JOIN 
+
+
+--Cuantos alumnos hay de cada modalidad
+
+select  count(t1.Nombre) ,t3.nombre from alumno t1
+inner join promocion t2 on t1.id_promocion = t2.id_promocion
+inner join rama t3 on t2.id_rama = t3.id_rama
+group by 2
