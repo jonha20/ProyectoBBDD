@@ -1,44 +1,32 @@
---Sacar una tabla con los alumnos como el ejemplo del csv
-
+--Cuantos alumnos hay en cada promoción
 SELECT 
-    alumno.nombre,
-    alumno.email,
-    promocion.npromocion,
-    promocion.fecha_inicio,
-    campus.nombre,
-    proyecto.nombre,
-    aprobado.apto
-FROM rama
+	COUNT(alumno.nombre),
+	promocion.npromocion
+FROM alumno
 INNER JOIN promocion
-ON rama.id_rama = promocion.id_rama
-INNER JOIN alumno
 ON promocion.id_promocion = alumno.id_promocion
-INNER JOIN proyecto
-ON proyecto.id_rama = rama.id_rama
-INNER JOIN aprobado
-ON aprobado.id_proyecto = proyecto.id_proyecto
-INNER JOIN campus
-ON prmocion.id_promocion = campus.id_promocion
-INNER JOIN tasistencia
-ON rama.id_rama = tasistencia.id_rama
-INNER JOIN modalidad
-ON rama.id_rama = modalidad.id_rama;
+GROUP BY promocion.npromocion;
 
---Sacar una tabla con los profesores como el ejemplo del csv
-
+--Cuantos alumnos hay en cada campus (hay alumnos con campus sin añadir)
 SELECT 
-    profesor.nombre,
-    rol.nombre,
-    rama.nombre,
-    promocion.npromocion,
-    campus.nombre,
-    tasistencia.tipo
-FROM profesor
-INNER JOIN rama
-ON rama.id_rama = profesor.id_rama
+	COUNT(alumno.nombre),
+	campus.nombre
+FROM alumno
 INNER JOIN promocion
-ON promocion.id_rama = rama.id_rama
-INNER JOIN rol
-ON rol.id_rol = profesor.id_rol
+ON promocion.id_promocion = alumno.id_promocion
 INNER JOIN campus
 ON campus.id_promocion = promocion.id_promocion
+GROUP BY campus.nombre;
+
+--Cuantos alumnos hay por campus y por a que promoción pertenecen
+SELECT 
+	COUNT(alumno.nombre),
+	campus.nombre,
+	promocion.npromocion,
+	promocion.fecha_inicio
+FROM alumno
+INNER JOIN promocion
+ON promocion.id_promocion = alumno.id_promocion
+LEFT JOIN campus
+ON campus.id_promocion = promocion.id_promocion
+GROUP BY promocion.npromocion, campus.nombre, promocion.fecha_inicio;
