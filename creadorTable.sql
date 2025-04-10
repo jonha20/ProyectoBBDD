@@ -210,6 +210,7 @@ ALTER TABLE IF EXISTS public.rol
 
 -- DROP TABLE IF EXISTS public.t_asistencia;
 
+
 CREATE TABLE IF NOT EXISTS public.t_asistencia
 (
     id_asistencia integer NOT NULL,

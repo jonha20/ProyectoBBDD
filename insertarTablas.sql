@@ -1,5 +1,6 @@
 --Aprobado
 
+
 INSERT INTO aprobado (id_nota, id_proyecto, "apto") VALUES
 (1, 1, 'apto'),
 (2, 2, 'apto'),
